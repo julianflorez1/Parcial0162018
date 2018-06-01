@@ -1,0 +1,47 @@
+plsql.execute <<-SQL
+-- procedimiento
+
+
+CREATE PROCEDURE CALCULAR_SIMULACION (
+  numero_cuota integer;
+  cuota_mensual decimal;
+  abono_capital decimal;
+  abono_interes decimal;
+  saldo decimal
+  )
+as
+  numero_cuota integer;
+  cuota_mensual decimal;
+  abono_capital decimal;
+  abono_interes decimal;
+  saldo decimal
+begin
+  v_data = in_fecini;
+
+  tasa nominal mensual = (1 + (tasa_efectiva_anual / 100)) ** (30 / 360) - 1;
+
+  if (numero_cuota is null) then 
+    begin
+     cuota_mensual = n / d;
+     abono_interes = tasa * saldo_actual
+     abono_capital = cuota_mensual - abono_interes
+     end;
+  end if;
+ 
+end;
+
+
+
+SQL
+
+plsql.execute <<-SQL
+-- vista
+
+create or replace view PLAN_AMORTIZACION as
+select NUMERO_CUOTA,ABONO_INTERES,ABONO_CAPITAL,CUOTA_MENSUAL, from AMORTIZACION
+select *from amortizacion
+  order by numero_cuota; 
+
+
+SQL
+
